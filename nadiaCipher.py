@@ -2,7 +2,7 @@ import os
 
 
 
-# One line comment
+
 
 def write_content(filename, input_content):
     """
