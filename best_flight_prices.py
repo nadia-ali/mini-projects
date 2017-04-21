@@ -6,7 +6,7 @@ destination = "CJB"
 outbound = "2017-06-25"
 inbound = "2017-06-17"
 
-api_key = "su999063616257631624190979680802"
+api_key = "MASKED FOR GIT"
 url_template = "http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/GB/GBP/EN-US/{}/{}/{}/{}?apiKey={}"
 url = url_template.format(from_, destination, inbound, outbound, api_key)
 
