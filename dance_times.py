@@ -5,7 +5,7 @@ import pandas as pd
 
 def studio68(path):
     """ Function to create a dance timetable from Studio68 website and save as csv
-    :param path: this is the path where you wish to save your csv file """
+    :param path: the path where you wish to save your csv file """
 
     url = "http://studio68london.net/work/timetable/"
     page = urlopen(url)
