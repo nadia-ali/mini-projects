@@ -12,5 +12,5 @@ def studio68(output_path):
     
     
 if __name__ == "__main__":
-    studio68("/Users/ssathiamoorthi/Documents/result.csv")
+    studio68("AnyFilePath.csv")
     
