@@ -1,39 +1,16 @@
-from urllib.request import urlopen
+import requests
 from bs4 import BeautifulSoup
-import pandas as pd
+import pandas as pd 
 
-
-def studio68(path):
-    """ Function to create a dance timetable from Studio68 website and save as csv
-    :param path: the path where you wish to save your csv file """
-
+def studio68(output_path):
     url = "http://studio68london.net/work/timetable/"
-    page = urlopen(url)
-    soup = BeautifulSoup(page, "html5lib")
-    content = soup.find("div", class_="real-content")
-    tr = (content.find_all("tr"))
-
-    list_ = []
-    for item in tr:
-        try:
-            name = (item.find("td", width="184").getText())
-            if item.find("td", width="206"):
-                style = item.find("td", width="206").getText()
-            elif item.find("td", width="205"):
-                style = item.find("td", width="205").getText()
-            if item.find("td", width="113"):
-                time = item.find("td", width="113").getText()
-            elif item.find("td", width="114"):
-                time = item.find("td", width="114").getText()
-            level = (item.find("td", width="99").getText())
-            studio = (item.find("td", width="57").getText())
-            price = (item.find("td", width="69").getText())
-            list_.append(([name, style, time, level, studio, price]))
-        except:
-            AttributeError
-
-    result = pd.DataFrame(list_)
-    result.to_csv(path)
-
+    req = requests.get(url)
+    soup = BeautifulSoup(req.content, "html.parser")
+    tables = soup.findAll("table",{"width":728})
+    data = pd.read_html(str(tables[0]))[0]
+    data.to_csv(output_path, index=False, header=0, encoding="utf-8")
+    
+    
 if __name__ == "__main__":
-    studio68(path)
+    studio68("AnyFilePath.csv")
+    
