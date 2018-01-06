@@ -17,3 +17,5 @@ dance_times.py
 Python script which returns a csv document of Studio 68's weekly timetable.
 You will need to pass the csv file path (where you would like to csv file to be saved) in the studio68 function.	
  
+box
+Box is a directory for a project whereby given a width(w) and a height(h), a box will be drawn by size w by h. 
